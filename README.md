@@ -13,14 +13,14 @@ A aplicação foi desenvolvida para resolver o problema de organização e cadas
 - **Formulário de Cadastro de Clientes**: Os usuários podem preencher um formulário com nome, telefone, e-mail, tipo de projeto e uma descrição da demanda.
 - **Validações Básicas**: O e-mail é validado antes de o formulário ser submetido.
 - **Banco de Dados**: Os dados dos clientes são salvos em um banco de dados SQLite.
-- **Interface Responsiva**: A interface foi construída usando **Bootstrap** para ser compatível com dispositivos móveis e desktops.
+- **Interface Responsiva**: A interface foi construída usando CSS simples
   
 ## Tecnologias Utilizadas
 
 - **Flask** (Python)
 - **SQLite** (Banco de Dados)
 - **HTML5**
-- **CSS3** (Bootstrap para estilização)
+- **CSS** 
 - **JavaScript** (para validações e interações)
 
 ## Como Executar o Projeto

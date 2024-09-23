@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #d3bfa9;
+    /* Cor baseada nas imagens fornecidas */
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 200px;
+    /* Ajuste o tamanho conforme necessário */
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+}
+
+form,
+.list {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #937d69;
+    /* Cor do botão */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #7f6c5b;
+}
+
+#mensagem-sucesso {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#mensagem-sucesso img {
+    width: 300px;
+    /* Ajuste o tamanho conforme necessário */
+}
+
+.hidden {
+    display: none;
+    /* Para esconder elementos, como mensagens de erro */
+}
+
+/* Para mostrar uma borda de erro nos inputs do formnome.classList.remove('error-border'); */
+.error-border {
+    border-color: red;
+}
+
+.warning-message {
+    font-family: Arial, sans-serif;
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+#loading-indicator {
+    width: 30px;
+    height: 30px;
+}
+
+.cliente {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}

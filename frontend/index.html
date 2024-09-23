@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mondi Arquitetura</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+    <!-- Logo no topo -->
+    <div class="logo">
+        <img src="static/mondi_logo.png" alt="Logo Mondi">
+    </div>
+
+    <h1>Gestão de Oportunidades de Projetos</h1>
+
+    <h2>Cadastrar Oportunidade</h2>
+    <form id="form-cadastro" enctype="multipart/form-data">
+        <p id="mensagem-sucesso" class="warning-message hidden">Dados inseridos com sucesso!</p>
+        <label>Nome do Cliente:</label><br>
+        <input type="text" id="nome" maxlength="40" required><br>
+
+        <label>Tipo de Projeto:</label><br>
+        <select id="tipo_projeto">
+            <option value="casa">Casa</option>
+            <option value="interiores">Interiores</option>
+            <option value="comercial">Comercial</option>
+        </select><br>
+
+        <label>Urgência:</label><br>
+        <select id="urgencia">
+            <option value="baixa">Baixa</option>
+            <option value="media">Média</option>
+            <option value="alta">Alta</option>
+        </select><br>
+
+        <label>Descrição:</label><br>
+        <textarea id="descricao" required></textarea><br>
+
+        <label>e-mail de contato:</label><br>
+        <span id="email-error" class="warning-message hidden">Favor inserir um endereço de e-mail válido.</span>
+        <input type="text" id="email" required><br>
+
+        <!-- Campo de Upload de Arquivos -->
+        <label>Upload de Referência (PDF ou Imagem):</label><br>
+        <input type="file" id="referencia" name="referencia" accept=".pdf,.jpg,.jpeg,.png"><br><br>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <!-- Exibir mensagem de sucesso aqui -->
+    <div id="mensagem-sucesso" class="hidden">
+        <img src="static/mondi_success.jpeg" alt="Mensagem de Sucesso">
+        <p>Oportunidade cadastrada com sucesso!</p>
+    </div>
+
+    <div id="lista-oportunidades" class="'hidden">
+        <h2>Oportunidades Cadastradas</h2>
+        <div id="lista-clientes" class="list hidden">
+            <span id="lista-error" class="warning-message hidden">Erro ao listar os projetos!</span>
+            <img id="loading-indicator" src="static/loading.gif" class="hidden" />
+        </div>
+    </div>
+
+    <script src="static/app.js"></script>
+</body>
+
+</html>

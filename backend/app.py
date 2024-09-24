@@ -3,7 +3,6 @@ from werkzeug.utils import secure_filename
 import os
 import sqlite3
 import time
-from flasgger import Swagger
 
 # region Constantes
 UPLOAD_FOLDER = './uploads' # Configuração da pasta para uploads (caso precise para imagens no futuro)
@@ -13,12 +12,6 @@ DB_FILE = './db.sqlite'
 
 # Inicializa o app Flask
 app = Flask(__name__, static_folder=FRONTEND_FOLDER+'static')
-app.config['SWAGGER'] = {
-    'swagger_ui': True,
-    'uiversion': 3,
-    'specs_route': '/swagger'  # Configuração para a rota /swagger
-}
-swagger = Swagger(app)  # Inicialização do Swagger
 
 # region Funções auxiliares
 
@@ -90,45 +83,6 @@ def show_upload(filename):
 # Rota para cadastrar um novo cliente no banco de dados
 @app.route('/cadastrar_cliente', methods=['POST'])
 def add_customer():
-    """
-    Cadastra um novo cliente.
-
-    ---
-    tags:
-      - Clientes
-    consumes:
-      - multipart/form-data
-    parameters:
-      - name: nome
-        in: formData
-        type: string
-        required: true
-      - name: tipo_projeto
-        in: formData
-        type: string
-        required: true
-      - name: urgencia
-        in: formData
-        type: string
-        required: true
-      - name: email
-        in: formData
-        type: string
-        required: true
-      - name: descricao
-        in: formData
-        type: string
-        required: true
-      - name: referencia
-        in: formData
-        type: file
-        required: false
-    responses:
-      201:
-        description: Cliente cadastrado com sucesso!
-      500:
-        description: Erro ao cadastrar o cliente
-    """
     conn = connect_db()  # Conecta ao banco de dados
     if conn is None:
         with app.app_context():
@@ -141,7 +95,7 @@ def add_customer():
         urgencia = request.form['urgencia']
         email = request.form['email']
         descricao = request.form['descricao']
-        referencia = None
+        referencia = None;
 
         # Salvar o arquivo (se existir) na pasta uploads
         if 'referencia' in request.files:
@@ -177,37 +131,6 @@ def add_customer():
 # Rota para listar clientes
 @app.route('/clientes', methods=['GET'])
 def list_customers():
-    """
-    Lista todos os clientes cadastrados.
-
-    ---
-    tags:
-      - Clientes
-    responses:
-      200:
-        description: Lista de clientes
-        schema:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: integer
-              nome:
-                type: string
-              tipo_projeto:
-                type: string
-              urgencia:
-                type: string
-              email:
-                type: string
-              descricao:
-                type: string
-              referencia:
-                type: string
-      500:
-        description: Erro ao listar os clientes
-    """
     conn = connect_db()  # Conecta ao banco de dados
     conn.row_factory = sqlite3.Row  # Define row_factory para retornar linhas como dicionários
     if conn is None:
@@ -233,11 +156,11 @@ def list_customers():
             return jsonify(clientes_list)
         
     except sqlite3.Error as e:
-        print(f"Erro ao listar clientes: {e}")
+        print(f"Erro ao cadastrar cliente: {e}")
         with app.app_context():
             return jsonify({'error': 'Erro ao listar os clientes'}), 500
     finally:
-        conn.close()
+        conn.close();
 
 # endregion
 
